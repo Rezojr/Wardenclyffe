@@ -30,6 +30,7 @@ public class Author extends IdEntity {
 
     @Email(message = "Provide a valid email")
     @NotEmpty(message = "Email cannot be empty")
+    @Column(unique = true)
     private String email;
 
     private String userName;
