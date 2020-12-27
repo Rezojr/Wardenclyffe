@@ -1,15 +1,11 @@
 package com.wardenclyffe.wardenclyffe.author;
 
 import com.wardenclyffe.wardenclyffe.common.exception.NotFoundException;
-import com.wardenclyffe.wardenclyffe.post.Post;
 import com.wardenclyffe.wardenclyffe.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor

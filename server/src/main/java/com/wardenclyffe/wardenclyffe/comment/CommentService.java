@@ -2,7 +2,6 @@ package com.wardenclyffe.wardenclyffe.comment;
 
 import com.wardenclyffe.wardenclyffe.author.AuthorRepository;
 import com.wardenclyffe.wardenclyffe.common.exception.NotFoundException;
-import com.wardenclyffe.wardenclyffe.post.Post;
 import com.wardenclyffe.wardenclyffe.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
