@@ -36,15 +36,8 @@ public class Post extends IdEntity {
     private int likes;
     private int views;
 
-    @JsonBackReference("author-post")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.PERSIST)
-    @JoinColumn(
-            name = "author_id",
-            nullable = false,
-            foreignKey = @ForeignKey(
-                    name = "fk_authors_id"
-            ))
-    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name = "author_id")
     @NotNull
     private Author author;
 

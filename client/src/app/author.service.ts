@@ -12,7 +12,6 @@ export class AuthorService {
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8080/authors';
-
   }
 
   public findAll(): Observable<Author[]> {

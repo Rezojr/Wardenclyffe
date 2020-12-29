@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
@@ -16,7 +18,7 @@ public class AuthorController {
     private final PostMapper postMapper;
 
     @GetMapping("/authors")
-    public Page<AuthorDto> getAll(Pageable pageable) {
+    public Page<AuthorDto> getAll(Pageable pageable) throws IOException {
         return authorMapper.mapAll(authorService.getAll(pageable));
     }
 

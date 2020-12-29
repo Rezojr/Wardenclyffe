@@ -4,6 +4,8 @@ import com.wardenclyffe.wardenclyffe.author.AuthorRepository;
 import com.wardenclyffe.wardenclyffe.common.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +20,7 @@ public class PostService {
     private final PostRepository postRepository;
     @Autowired
     private final AuthorRepository authorRepository;
+
 
     public Page<Post> findAllByAuthorId(Long authorId, Pageable pageable) {
         return postRepository.findAllByAuthorId(authorId, pageable);
