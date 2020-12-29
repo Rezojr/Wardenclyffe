@@ -11,34 +11,35 @@ import java.io.IOException;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(value = "/authors")
 public class AuthorController {
 
     private final AuthorService authorService;
     private final AuthorMapper authorMapper;
     private final PostMapper postMapper;
 
-    @GetMapping("/authors")
+    @GetMapping
     public Page<AuthorDto> getAll(Pageable pageable) throws IOException {
         return authorMapper.mapAll(authorService.getAll(pageable));
     }
 
-    @GetMapping("/authors/{id}")
+    @GetMapping(value = "/{id}")
     public AuthorDto findById(@PathVariable Long id) {
         return authorMapper.toDto(authorService.findById(id));
     }
 
-    @PostMapping("/authors")
+    @PostMapping
     public AuthorDto create(@RequestBody Author author) {
         return authorMapper.toDto(authorService.create(author));
     }
 
-    @PutMapping("/authors/{id}")
+    @PutMapping(value = "/{id}")
     public AuthorDto update(@PathVariable Long id,
                          @RequestBody Author author) {
         return authorMapper.toDto(authorService.update(id, author));
     }
 
-    @DeleteMapping("/authors/{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Long id) {
         authorService.delete(id);
     }

@@ -48,10 +48,7 @@ public class AuthorService {
     public Author update(Long id, Author expectedAuthor) {
         return authorRepository.findById(id)
                 .map(author -> {
-                    author.setFirstName(expectedAuthor.getFirstName());
-                    author.setLastName(expectedAuthor.getLastName());
                     author.setDescription(expectedAuthor.getDescription());
-                    author.setProfilePic(expectedAuthor.getProfilePic());
                     return authorRepository.save(author);
                 }).orElseThrow(() -> new NotFoundException(id, "Cannot update author, not found id "));
     }

@@ -24,8 +24,8 @@ public class PostController {
 
     @GetMapping("/posts/{page}/{size}")
     public Page<Post> getPagedPosts(@PathVariable Long authorId,
-                                    @PathVariable Integer page,
-                                    @PathVariable Integer size) {
+                                    @RequestParam Integer page,
+                                    @RequestParam Integer size) {
         return postService.findPagedPosts(authorId, page, size);
     }
 

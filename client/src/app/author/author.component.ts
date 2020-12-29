@@ -14,9 +14,14 @@ export class AuthorComponent implements OnInit {
   constructor(private authorService: AuthorService) { }
 
   ngOnInit() {
-    this.authorService.findAll().subscribe(data => {
-      this.authors = data;
-    });
+    this.getAuthors();
+  }
+
+  getAuthors(): void {
+    this.authorService.findAll()
+      .subscribe((authorsData: Author[]) => {
+        this.authors = authorsData;
+      });
   }
 
 }

@@ -9,6 +9,8 @@ import {AuthorService} from "../author.service";
   styleUrls: ['./auhtor-form.component.css']
 })
 export class AuhtorFormComponent implements OnInit {
+  ngOnInit(): void {
+  }
 
   author: Author;
 

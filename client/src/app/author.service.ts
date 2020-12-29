@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Author} from "./author";
 
@@ -8,11 +8,13 @@ import {Author} from "./author";
 })
 export class AuthorService {
 
-  private usersUrl: string;
+  private usersUrl = 'http://localhost:8080/authors';
 
-  constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/authors';
-  }
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
+
+  constructor(private http: HttpClient) {}
 
   public findAll(): Observable<Author[]> {
     return this.http.get<Author[]>(this.usersUrl);

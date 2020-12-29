@@ -1,19 +1,21 @@
 package com.wardenclyffe.wardenclyffe.author;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.wardenclyffe.wardenclyffe.common.Constants;
 import com.wardenclyffe.wardenclyffe.common.IdEntity;
+import com.wardenclyffe.wardenclyffe.post.Post;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -33,9 +35,10 @@ public class Author extends IdEntity {
     @Size(max = Constants.EMAIL_MAX_CHARS)
     private String email;
 
-    @Nullable
-    private String phone;
-
     private String avatar;
     private String description;
+
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "author")
+    @JsonManagedReference(value = "author-post")
+    private List<Post> posts = new ArrayList<>();
 }

@@ -5,7 +5,7 @@ import {AuhtorFormComponent} from "./auhtor-form/auhtor-form.component";
 
 const routes: Routes = [
   { path: 'authors', component: AuthorComponent },
-  { path: 'authors', component: AuhtorFormComponent }
+  { path: 'form', component: AuhtorFormComponent }
 ];
 
 @NgModule({
