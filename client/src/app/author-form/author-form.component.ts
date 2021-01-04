@@ -4,11 +4,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthorService} from "../author.service";
 
 @Component({
-  selector: 'app-auhtor-form',
-  templateUrl: './auhtor-form.component.html',
-  styleUrls: ['./auhtor-form.component.css']
+  selector: 'app-author-form',
+  templateUrl: './author-form.component.html',
+  styleUrls: ['./author-form.component.css']
 })
-export class AuhtorFormComponent implements OnInit {
+export class AuthorFormComponent implements OnInit {
   ngOnInit(): void {
   }
 

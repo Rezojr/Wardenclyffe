@@ -19,7 +19,7 @@ export class AuthorComponent implements OnInit {
 
   getAuthors(): void {
     this.authorService.findAll()
-      .subscribe((authorsData: Author[]) => {
+      .subscribe((authorsData) => {
         this.authors = authorsData;
       });
   }
