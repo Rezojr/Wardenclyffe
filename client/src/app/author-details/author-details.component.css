@@ -13,10 +13,12 @@ main>.personalia{
     position: relative;
     border-radius: 200px;
 }
+.personalia>img{
+    background-color: var(--red3);
+    padding: 25px;
+}
 main>p{
     background-color: var(--mid-color1);
-    box-shadow: inset 1px 1px 8px 2px hsla(0, 0%, 0%, 0.719),
-                      5px 5px 8px 2px black;
 }
 main>.post{
     position: relative;

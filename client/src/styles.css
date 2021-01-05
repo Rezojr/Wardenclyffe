@@ -1,1 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+:root{
+    --background-color:hsl(253, 43%, 3.5%);
+    --mid-color1: hsl(28, 30%, 30%);
+    --mid-color2: hsl(39, 80%, 50%);
+    --mid-color3: hsl(28, 30%, 40%);
+    --foreground-color1: #BF8654;
+    --foreground-color2: #D9AE5F;
+    --magic: #5E41BF;
+    --green: #2c532e;
+    --red1: hsl(0, 100%, 10%);
+    --red2: hsl(0, 57%, 23%);
+    --red3: hsl(0, 50%, 50%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 100px 0 0 150px;
+    font-family: 'MedievalSharp', cursive;
+    background-color: var(--background-color);
+    color: var(--foreground-color1);
+}
+button{
+    outline: none;
+    border: none;
+    transition: .2s;
+    cursor: pointer;
+}
+button:disabled{
+    cursor: initial;
+}
+a{
+    color:var(--foreground-color1);
+    text-decoration: none;
+    transition: .3s color;
+}
+a:hover{
+    color: var(--foreground-color2);
+    text-decoration: underline;
+}
+.flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+input{
+    background-color: inherit;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    color:var(--foreground-color2);
+}
+label{
+    display: inline-block;
+    margin-right: 5px;
+    cursor: auto;
+}
+.pos-down{
+    position: absolute;
+    bottom: 5px;
+}
+main>.post{
+    background-color:#b69e73;
+    border: 1px solid wheat;
+    color:hsl(37, 6%, 15%);
+}
+.paper{
+    -webkit-box-shadow: 4px 4px 0px 0px #D2BF9A, 8px 8px 0px 0px #A29377; 
+    box-shadow: 4px 4px 0px 0px #D2BF9A, 8px 8px 0px 0px #A29377;
+    background-color:#f5deb3;
+}
+.seal{
+    background: var(--red2);
+    box-shadow: inset -8px -8px 7px 5px hsla(0, 80%, 5%, 0.8),
+                inset 0px 0px 5px 1px black, 
+                inset 0px 0px 4px 4px hsl(0, 90%, 65%), 
+                inset 0px 0px 4px 6px hsl(0, 57%, 13%),
+                      1px 1px 8px 2px black;
+                
+    color: var(--red1);
+    text-shadow: 2px 2px 3px hsla(0, 31%, 45%, 0.315);
+}
+.checkbox-container{
+  display: inline-block;
+  position: relative;
+  padding-left: 15px;
+  cursor: pointer;
+  font-size: 0.7em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox-container>input[type='checkbox']{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
