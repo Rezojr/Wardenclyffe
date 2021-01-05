@@ -37,7 +37,7 @@ main>.post{
 .checkmark{
     display: inline-block;
     border-radius: 50%;
-    font-size: 2.5em;
+    font-size: 2.4em;
     font-weight: bolder;
     width: 30px;
     height: 30px;
@@ -48,7 +48,6 @@ main>.post{
     border-bottom: 5px groove var(--red3); */
 }
 .checkbox-container:hover input ~ .checkmark{
-    transform: scale(1.2) rotate(-30deg);
     color: wheat;
 }
 .checkbox-container input:checked ~ .checkmark{
@@ -56,4 +55,5 @@ main>.post{
     box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0,0,0,0);
     color:white;
     background-color: rgb(236,239,207);
+    /* border: 3px solid wheat; */
 }

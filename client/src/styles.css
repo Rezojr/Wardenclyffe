@@ -81,7 +81,7 @@ main>.post{
                 inset 0px 0px 4px 4px hsl(0, 90%, 65%), 
                 inset 0px 0px 4px 6px hsl(0, 57%, 13%),
                       1px 1px 8px 2px black;
-                
+    /* border: 3px solid rgb(145, 41, 41); */
     color: var(--red1);
     text-shadow: 2px 2px 3px hsla(0, 31%, 45%, 0.315);
 }
