@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {of, Observable} from "rxjs";
-import {Author} from "./author";
+import {Author} from "../author";
 import { catchError, map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -17,13 +17,13 @@ export class AuthorService {
   constructor(private http: HttpClient) {}
 
   public findAll(): Observable<Author[]> {
-    return this.http.get<Author[]>(this.usersUrl).pipe(
+    return this.http.get<any>(this.usersUrl).pipe(
       catchError(this.handleError<Author[]>("findAll()",[])),
       map((response)=>response.content as Author[])
     );
   }
   public findById(id:number):Observable<Author>{
-    return this.http.get<Author>(`${this.usersUrl}/${id}`).pipe(
+    return this.http.get<any>(`${this.usersUrl}/${id}`).pipe(
       catchError(this.handleError<Author>("get()")),
       map((response)=>response.content as Author)
     );
