@@ -1,1 +1,21 @@
-<p>nav works!</p>
+<header class="flex">
+    <button (click)="switch()">
+        <svg>
+            <path d="   M5 9 L 25 9
+            M5 17 L 25 17
+            M5 25 L 25 25"
+            stroke-width="3px" stroke="var(--foreground-color1)"/>
+        </svg>
+    </button>
+    <a routerLink="/">
+        <h1>Wardenclyffe</h1>
+    </a>
+    <nav>
+        <div class="pos-down">
+            <label *ngIf="!searched">wyszukaj:
+                <input #searchBox id="search-box" (input)="this.search(searchBox.value)" autocomplete="off">
+            </label>
+
+        </div>
+    </nav>
+</header>

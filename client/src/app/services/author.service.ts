@@ -1,55 +1,36 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {of, Observable} from "rxjs";
-import {Author} from "../author";
-import { catchError, map} from 'rxjs/operators';
+import { RequestService } from "./request.service";
+import { Author } from "../defs/author";
+import {Observable} from "rxjs";
+import { Request } from "../defs/request";
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorService {
-
-  private usersUrl = 'http://localhost:8080/authors';
-
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  };
-
-  constructor(private http: HttpClient) {}
-
-  public findAll(): Observable<Author[]> {
-    return this.http.get<any>(this.usersUrl).pipe(
-      catchError(this.handleError<Author[]>("findAll()",[])),
-      map((response)=>response.content as Author[])
-    );
+  private url='/authors';
+  authors:Author[]=[];
+  constructor(private request:RequestService) {}
+  getAll():void{
+    // @ts-ignore
+    this.request.getAndMap(this.url,this.strip).subscribe((result): Author[] => this.authors=result);
   }
-  public findById(id:number):Observable<Author>{
-    return this.http.get<any>(`${this.usersUrl}/${id}`).pipe(
-      catchError(this.handleError<Author>("get()")),
-      map((response)=>response.content as Author)
-    );
+  getById(id:number):Observable<Author>{
+    return this.request.get(`${(this.url)}/${id}`);
   }
-  public create(author:Author):Observable<any>{
-    return this.http.put(this.usersUrl, author, this.httpOptions).pipe(
-      catchError(this.handleError<Author>("create()"))
-    );
+  getByName(name:string){
+    this.request.getAndMap(this.url,(result:Request)=>
+      result.content.filter((a:Author): boolean =>
+        new RegExp(`\w*${name}\w*`,'i').test(a.nickname)
+      )
+      // @ts-ignore
+    ).subscribe((result): Author[] => this.authors=result);
+  }
+  private strip(result:Request){
+    return result.content;
+  }
+  private set(result:Author[]){
+    this.authors=result;
   }
 
-  public save(author: Author) {
-    return this.http.post<Author>(this.usersUrl, author).pipe(
-      catchError(this.handleError<Author>("save()"))
-    );
-  }
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.error(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
 }

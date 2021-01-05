@@ -1,1 +1,19 @@
-<p>author-details works!</p>
+<main>
+    <div class="personalia seal">
+        <h2>{{author.nickname}}</h2>
+        <p><img src='{{author.avatar}}' alt="{{author.avatar}}"></p>
+    </div>
+    <p>{{author.description}}</p>
+    <p>{{author.email}}</p>
+    <h2>Posty</h2>
+    <div class="post" *ngFor='let post of author.posts'>
+        {{post.content}}
+        <div class="likes paper">
+            <span>{{post.likes}}</span>💞
+            <label class='checkbox-container'>
+                <input type="checkbox" #like>
+                <span class="checkmark seal">+</span>
+            </label>
+        </div>
+    </div>
+</main>

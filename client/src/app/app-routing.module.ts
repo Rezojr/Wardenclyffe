@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthorComponent} from "./author/author.component";
 import {AuthorFormComponent} from "./author-form/author-form.component";
+import {GalleryComponent} from "./gallery/gallery.component";
+import {AuthorDetailsComponent} from "./author-details/author-details.component";
 
 const routes: Routes = [
-  { path: 'authors', component: AuthorComponent },
-  { path: 'form', component: AuthorFormComponent }
+  { path: '', component: GalleryComponent },
+  { path: 'form', component: AuthorFormComponent },
+  { path: 'authors/:id', component: AuthorDetailsComponent }
 ];
 
 @NgModule({

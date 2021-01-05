@@ -1,1 +1,5 @@
-<p>gallery works!</p>
+<main>
+    <div *ngFor='let author of authorService.authors' class="seal">
+        <a routerLink='/authors/{{author.id}}'>{{author.nickname}}</a>
+    </div>
+</main>
